@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Training.Persona.Business.Interfaces\Training.Persona.Business.Interfaces.csproj" />
+    <ProjectReference Include="..\Training.Persona.Business.Validators\Training.Persona.Business.Validators.csproj" />
+    <ProjectReference Include="..\Training.Persona.Business\Training.Persona.Business.csproj" />
+    <ProjectReference Include="..\Training.Persona.Data.Interfaces\Training.Persona.Data.Interfaces.csproj" />
+    <ProjectReference Include="..\Training.Persona.Data\Training.Persona.Data.csproj" />
+    <ProjectReference Include="..\Training.Persona.Entities\Training.Persona.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Apollo.NetCore.Core.Data">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo.NetCore.Core.Extensions">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

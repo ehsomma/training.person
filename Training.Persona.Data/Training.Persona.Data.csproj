@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Training.Persona.Data.Interfaces\Training.Persona.Data.Interfaces.csproj" />
+    <ProjectReference Include="..\Training.Persona.Entities\Training.Persona.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Apollo.NetCore.Core.Data">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo.NetCore.Core.Exceptions">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo.NetCore.Core.Extensions">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

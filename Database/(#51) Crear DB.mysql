@@ -1,0 +1,63 @@
+CREATE DATABASE `personadatabase` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `personadatabase`;
+
+CREATE TABLE `bienes` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador del registro.',
+  `Tipo` varchar(60) NOT NULL COMMENT 'Tipo de bien (Mueble, Inmueble).',
+  `Descripcion` varchar(255) NOT NULL COMMENT 'Descripción del bien.',
+  `Valor` decimal(9,2) NOT NULL COMMENT 'Valor del bien.',
+  `PersonaId` int(11) NOT NULL COMMENT 'Identificador de persona.',
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Almacena los datos de bienes personales.';
+
+CREATE TABLE `paises` (
+  `CodigoIata` varchar(2) NOT NULL COMMENT 'Código IATA.',
+  `Nombre` varchar(120) NOT NULL COMMENT 'Nombre del país.',
+  PRIMARY KEY (`CodigoIata`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Almacena los datos de países.';
+
+CREATE TABLE `personas` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador del registro.',
+  `NombreCompleto` varchar(60) NOT NULL COMMENT 'Apellido y nombre/s.',
+  `EMail` varchar(320) NOT NULL COMMENT 'Dirección de correo electrónico.',
+  `FechaCreo` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Fecha de creación de este registro (UTC).',
+  `FechaActualizo` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT 'Fecha de la última modificación de este registro (UTC).',
+  `TotalAhorro` decimal(9,2) NOT NULL COMMENT 'Importe total de los ahorros.',
+  `PorcAhorro` decimal(5,2) NOT NULL COMMENT 'Porcentaje de ahorro sobre el sueldo.',
+  `Obs` text COMMENT 'Observaciones.',
+  `Direccion` text COMMENT 'Dirección completa.',
+  `Lat` decimal(11,6) NOT NULL COMMENT 'Latitud de la dirección.',
+  `Lon` decimal(11,6) NOT NULL COMMENT 'Longitud de la dirección.',
+  `EstadoId` tinyint(4) NOT NULL COMMENT 'Estado de la Persona.',
+  `FechaNacimiento` date DEFAULT NULL COMMENT 'Fecha de nacimiento.',
+  `RecibirNotificaciones` bit(1) NOT NULL COMMENT 'Determina si se le envían o no notificaciones.',
+  `DateFormat` varchar(10) DEFAULT NULL COMMENT 'Date format (e.g. "MM/dd/yyyy", "dd/MM/yyyy").',
+  `TimeFormat` varchar(15) DEFAULT NULL COMMENT 'Time format (e.g. "hh:mm tt" for 12 hours format, "HH:mm" for 24 hours format).',
+  `LanguageCode` varchar(5) DEFAULT NULL COMMENT 'Language code (e.g. "en", "es", "pt").',
+  `ZonaHoraria` text COMMENT 'Json de TimeZone.',
+  `CountryCode` varchar(2) NOT NULL COMMENT 'Código IATA del país de residencia.',
+  `Password` varchar(120) NOT NULL COMMENT 'User password.',
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `UK_Personas_EMail` (`EMail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Almacena los datos de personas.';
+
+ALTER TABLE `personadatabase`.`personas` 
+ADD INDEX `FK_Personas_Paises_idx` (`CountryCode` ASC);
+
+ALTER TABLE `personadatabase`.`personas` 
+ADD CONSTRAINT `FK_Personas_Paises`
+  FOREIGN KEY (`CountryCode`)
+  REFERENCES `personadatabase`.`paises` (`CodigoIata`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `personadatabase`.`bienes` 
+ADD INDEX `FK_Bienes_Personas_idx` (`PersonaId` ASC);
+
+ALTER TABLE `personadatabase`.`bienes` 
+ADD CONSTRAINT `FK_Bienes_Personas`
+  FOREIGN KEY (`PersonaId`)
+  REFERENCES `personadatabase`.`personas` (`Id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;

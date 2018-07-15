@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeCoverage" Version="1.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Training.Persona.Business.Interfaces\Training.Persona.Business.Interfaces.csproj" />
+    <ProjectReference Include="..\Training.Persona.Business.Validators\Training.Persona.Business.Validators.csproj" />
+    <ProjectReference Include="..\Training.Persona.Data.Interfaces\Training.Persona.Data.Interfaces.csproj" />
+    <ProjectReference Include="..\Training.Persona.Data\Training.Persona.Data.csproj" />
+    <ProjectReference Include="..\Training.Persona.Entities\Training.Persona.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Apollo.NetCore.Core.Exceptions">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo.NetCore.Core.Extensions">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

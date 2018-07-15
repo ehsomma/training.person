@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.1" />
+    <PackageReference Include="Dapper" Version="1.50.2" />
+    <PackageReference Include="FluentValidation" Version="7.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Xml.XPath" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="System\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Apollo.NetCore.Core.ExceptionManager\Apollo.NetCore.Core.ExceptionManager.csproj" />
+    <ProjectReference Include="..\Apollo.NetCore.Core.Exceptions\Apollo.NetCore.Core.Exceptions.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\Training.Persona.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netcoreapp2.0\Training.Persona.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="MySql.Data" Version="6.10.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Training.Persona.Business.Interfaces\Training.Persona.Business.Interfaces.csproj" />
+    <ProjectReference Include="..\Training.Persona.Business\Training.Persona.Business.csproj" />
+    <ProjectReference Include="..\Training.Persona.Entities\Training.Persona.Entities.csproj" />
+    <ProjectReference Include="..\Training.Persona.Ioc\Training.Persona.Ioc.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Apollo.NetCore.Core.Exceptions">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo.NetCore.Core.Extensions">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo.NetCore.Core.Settings">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo.NetCore.Core.Web.Api">
+      <HintPath>..\Libs\Apollo.NetCore.Core\Apollo.NetCore.Core.Web.Api.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
